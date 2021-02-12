@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="div"></div>
+    <script src="./scripts.js"></script>
+</body>
+</html>
+<script>
+    let div = document.querySelector("div");
+let canMove = false;
+div.addEventListener("mousedown", function(event) {
+   canMove = true;
+});
+
+document.body.addEventListener("mouseup", function(event) {
+    canMove = false;
+});
+ 
+document.body.addEventListener("mousemove", function(event) {
+    if(canMove == true){
+    div.style.left = event.clientX - 30 + "px";
+    div.style.top = event.clientY - 30 + "px";
+    }
+});
+</script>
+<style>
+    #div{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    position: absolute;
+    overflow: hidden;
+}
+</style>
